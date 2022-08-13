@@ -9,21 +9,97 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>上古时代的宝贝开卖了！</description>
-    <pubDate>Thu, 11 Aug 2022 06:43:42 GMT</pubDate>
+    <pubDate>Sat, 13 Aug 2022 09:28:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>数据结构</title>
-      <link>http://example.com/2022/08/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-      <guid>http://example.com/2022/08/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-      <pubDate>Thu, 11 Aug 2022 06:43:42 GMT</pubDate>
+      <title>8.8-8.12--工作报告</title>
+      <link>http://example.com/2022/08/13/8-8-8-12-%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/</link>
+      <guid>http://example.com/2022/08/13/8-8-8-12-%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/</guid>
+      <pubDate>Sat, 13 Aug 2022 09:06:56 GMT</pubDate>
+      
+      <description>&lt;p&gt;8.8-8.12 工作总结周报&lt;/p&gt;</description>
       
       
       
+      <content:encoded><![CDATA[<p>8.8-8.12 工作总结周报</p><span id="more"></span><p>本周主要进行了对cwe漏洞库的翻译工作，学习和认识了漏洞的种类，等级，概述和使用方法。认识到CWE是一个常见漏洞和暴露的清单，详细说明了在各种软件和硬件中发现的漏洞，但是在CWE中并没有提到环节策略来防止攻击者利用他们呢，在ATT&amp;CK为许多而已战术提供了缓解技术。并进行了对上一周obpm漏洞的补充，主要是互联网上的案例如oa.dacpe.com,微企365等使用该系统漏洞存在的证明，以及去了解学习和复现了致远OA任意文件上传漏洞，当时学习到致远OA的问题是在upload.php文件中if else语句中存在如果传入一个参数p就可以跳过登录界面，所以使用burpisute抓包进行传入path等数据(该漏洞还有连带而出的其他文件上的漏洞)，所以在周五的任务中要查看OBPM源代码确定漏洞所在位置和组件名称，我的思路首先就是关于上传方面的文件的查看，看到了一些if else语句可能存在代码漏洞，以及实用的第三方库好像有一些问题，但是因为是根据poc漏洞逆推，如果正向查找并找不到该疑似漏洞文件的路径，就找了很久，后来在和同事的交流中认识到在另外一个文件中提到了这个直接查找并找不到的路径，我和同事的是发现者通过浏览源代码看到了该文件中提到了一个无法直接找到路径的文件，再查看该文件后看到了存在的该文件中存在漏洞，在该文件中获得上传权限后，再在目标文件夹下载该文件完成对该OA系统的攻击，下周会尝试进行复刻这个过程验证自己思路的正确性。</p>]]></content:encoded>
       
       
       
-      <comments>http://example.com/2022/08/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#disqus_thread</comments>
+      <category domain="http://example.com/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+      
+      
+      <comments>http://example.com/2022/08/13/8-8-8-12-%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>工作报告</title>
+      <link>http://example.com/2022/08/13/8.1-8.5--%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/</link>
+      <guid>http://example.com/2022/08/13/8.1-8.5--%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/</guid>
+      <pubDate>Sat, 13 Aug 2022 08:39:30 GMT</pubDate>
+      
+      <description>&lt;p&gt;8.1-8.5 第二周周报&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>8.1-8.5 第二周周报</p><span id="more"></span><p>​8.1-8.2日完成了对信息安全中心 - Web漏洞渗透测试系统 (poc.icu)靶场的漏洞测试，主要负责了对Session劫持漏洞，Apache文件解析漏洞，任意文件上传漏洞，JS限制文件上传，MIME限制文件上传，扩展名限制文件上传，以及内容限制文件上传，在完成这部分内容后也对sql注入，xss，文件包含漏洞等进行了操作与更系统的学习。在8.3-8.4进行了对obpm的一个0day漏洞的poc代码的学习和复现，找了各个版本不限于myapps进行测试，对未授权的文件上传漏洞进行了更系统性的学习与复现。8.5日去了解了提升文件系统效率方面的论文和专利，如分布式文件系统检索性能优化，基于FastDFS的云存储文件系统性能优化设计与实现等。这一周对于0day漏洞的任务明显感觉到了自身的不足，poc代码都看了有二十分钟才初步弄清楚攻击过程，感觉自身在代码方面也要继续学习，不能只停留在书面上更多的要去注意实操。</p><p>​       下一周的计划还是在完成工作的情况下继续学习web攻防的知识刷ctf的题库，为九月份的ctf继续积蓄知识。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+      
+      
+      <comments>http://example.com/2022/08/13/8.1-8.5--%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据结构--线性表</title>
+      <link>http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/</link>
+      <guid>http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/</guid>
+      <pubDate>Sat, 13 Aug 2022 08:36:27 GMT</pubDate>
+      
+        
+        
+      <description>&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<span id="more"></span>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="http://example.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</category>
+      
+      
+      <comments>http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据结构绪论</title>
+      <link>http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/</link>
+      <guid>http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/</guid>
+      <pubDate>Sat, 13 Aug 2022 08:24:44 GMT</pubDate>
+      
+      <description>&lt;p&gt;数据结构入门的一些概念，定义，算法，复杂度等&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>数据结构入门的一些概念，定义，算法，复杂度等</p><span id="more"></span><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>数据：信息的载体，被<strong>计算机程序识别和处理</strong>的符号的集合</p><p>数据元素：数据的<strong>基本单位</strong>，作为一个整体进行考虑和处理。可由若干<strong>数据项</strong>组成，数据项时构成数据元素的不可分割的<strong>最小单位</strong></p><p>组合项：由更细分的属性组成的数据项</p><p>数据对象：具有<strong>相同性质的数据元素的集合</strong>，是数据的一个子集</p><p>数据结构：相互之间存在一种或多种特定关系的数据元素的集合</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>对特定问题求解步骤的一种描述</p><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><pre><code>       有穷性：算法是有穷的，程序可以是无穷的（死循环不是算法）       确定性：相同的输入只能得到相同的输出       可行性       输入：0个或多个       输出：1个或多个</code></pre><h3 id="好算法的特质"><a href="#好算法的特质" class="headerlink" title="好算法的特质"></a>好算法的特质</h3><pre><code>        正确性        可读性        健壮性：输入非法数据时，能适当作出反应进行处理        高效率，低存储需求：时间空间复杂度低</code></pre><h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>常对幂指阶<br>$$<br>O(1)&lt;O(log_2n)&lt;O(n)&lt;O(nlog_2n)&lt;O(n^2)&lt;O(n^3)&lt;O(2^n)&lt;O(n!)&lt;O(n^n)<br>$$</p><p>考虑数量级<br>$$<br>T(n)&#x3D;O(f(n)) \Leftrightarrow \lim\limits_{n\rightarrow\infty}\frac{T(n)}{f(n)}<br>$$<br>加法<br>$$<br>T(n)&#x3D;T_1(n)+T_2(n)&#x3D;O(f(n))+O(g(n))&#x3D;O(max(f(n),g(n))<br>$$<br>乘法<br>$$<br>T(n)&#x3D;T_1(n)*T_2(n)&#x3D;O(f(n))*O(g(n))&#x3D;O(f(n)*g(n))<br>$$</p><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>越高级的语言执行效率越低</p><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>函数递归调用带来的内存开销，递归调用深度x与问题规模n的关系：x&#x3D;f（n）</p><h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><p>逻辑结构数据运算存储结构</p><h4 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h4><img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/1.png" style="zoom: 80%;"><p>集合：数据元素同属于一个集合，没有其他关系</p><p>线性结构  ：只存在一对一的关系</p><p>树形结构  ：存在一对多的关系</p><p>网状结构或图状结构：存在多对多的关系</p><img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520173714417.png" style="zoom:80%;"><h4 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h4><p>1）顺序存储：逻辑上相邻物理上也相邻</p><p>2）链式存储：借助指针来表示元素之间的逻辑关系</p><p>3）索引存储：建立附加的索引表，索引项的一般形式（关键字，地址）</p><p>4）散列存储：哈希存储，根据元素的关键字</p><h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>1.可以用（）定义一个完整的数据结构                  <strong>D</strong></p><p>   A.数据元素B.数据对象C.数据关系D.抽象数据结构</p><p>2.数据结构的说法中，正确的（）<strong>A</strong></p><pre><code>A.数据的逻辑结构独立于其存储结构       B.数据的存储结构独立于其逻辑结构//存储结构是逻辑结构在计算机上的映射C.数据的逻辑结构唯一决定其存储结构D.数据结构仅由其逻辑结构和存储结构决定</code></pre><p>3.<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/3.png"><strong>A</strong></p><p> <img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/4.png"></p><p>4.<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/5.png"></p><p><img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/6.png"></p><p>5.算法原地工作的含义是指算法所需的辅助空间是常量。</p><p>   时间复杂度总是考虑最坏情况下的时间复杂度，以保证算法的运行时间不会比它更长。</p><p>7.<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520182104382.png"></p><p> <img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520182039190.png"></p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      
+      <comments>http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/#disqus_thread</comments>
       
     </item>
     
@@ -31,7 +107,7 @@
       <title>RCE————thinkphp5</title>
       <link>http://example.com/2022/08/11/thinkphp5/</link>
       <guid>http://example.com/2022/08/11/thinkphp5/</guid>
-      <pubDate>Thu, 11 Aug 2022 04:33:07 GMT</pubDate>
+      <pubDate>Thu, 11 Aug 2022 09:53:33 GMT</pubDate>
       
       <description>&lt;p&gt; 基于对RCE的学习，对著名的thinkphpv5进行漏洞复现&lt;/p&gt;</description>
       
@@ -47,23 +123,6 @@
       
       
       <comments>http://example.com/2022/08/11/thinkphp5/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>千字文</title>
-      <link>http://example.com/2022/08/11/%E5%8D%83%E5%AD%97%E6%96%87/</link>
-      <guid>http://example.com/2022/08/11/%E5%8D%83%E5%AD%97%E6%96%87/</guid>
-      <pubDate>Thu, 11 Aug 2022 02:54:31 GMT</pubDate>
-      
-      
-      
-      
-      
-      <category domain="http://example.com/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
-      
-      
-      <comments>http://example.com/2022/08/11/%E5%8D%83%E5%AD%97%E6%96%87/#disqus_thread</comments>
       
     </item>
     

