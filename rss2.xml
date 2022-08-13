@@ -9,8 +9,29 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>上古时代的宝贝开卖了！</description>
-    <pubDate>Sat, 13 Aug 2022 15:32:51 GMT</pubDate>
+    <pubDate>Sat, 13 Aug 2022 15:37:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>第一周7.25-7.29 工作周报</title>
+      <link>http://example.com/2022/08/13/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%91%A8%E6%8A%A5/</link>
+      <guid>http://example.com/2022/08/13/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%91%A8%E6%8A%A5/</guid>
+      <pubDate>Sat, 13 Aug 2022 15:35:24 GMT</pubDate>
+      
+      <description>&lt;p&gt;第一周工作总结&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>第一周工作总结</p><span id="more"></span><p>​在这一周刚开始的时候，最开始得到的任务是广东省市场监督管理局信息系统的漏洞扫描和渗透测试，根据所给的模板和实例独立完成了渗透测试报告单的填写以及漏洞扫描漏洞单的部分，通过红队队长给的翻译att&amp;ck进行了团队任务中关于持久化和权限提升的翻译，并且学习att&amp;ck详细知识大概已学习三分之一，通过旁听红队队长给老师们讲述的课程对于sql’注入的各种类型xss攻击文件，文件上传攻击有了更加清晰的理解，曾经对于这些攻击的理解还停留在表面上看得到的东西，通过跟红队队长的学习学会了看不到层面的东西，通过抓包去分析更底层的运行逻辑，并在队长所给出的靶场以及自己的靶场进行学习测试并成功实现低中难度下的攻击，正在进行高安全性和impossible安全性的学习和测试。本周最后一个任务是关于文件快速查找论文和专利的查询，通过这项任务学习，因为要记录摘要和技术点接触和了解到了一些关于计算机技术如哈希查找，二分法，倒排索引，位图法，CSR算法，拉格朗日插值的动态预测查找算法等，并对其中一些相对简单的知识点进行了学习和了解。在本周的实习过程中，明显感觉到了自己原来学习的知识浅而且广度也不够，对于知识点的扩展不足，不了解的东西还有很多在攻防方面知识还有很大的缺口。</p><p>​下一周的计划：完成对att&amp;ck的了解和初步学习。继续学习攻防知识完善自己的攻防体系。认真完成布置下来的任务。完成这星期没有弄完的高安全性以impossible安全性的学习提高效率，拓宽自己学习的知识面。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+      
+      
+      <comments>http://example.com/2022/08/13/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%91%A8%E6%8A%A5/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>顺序表的增删改查</title>
@@ -26,11 +47,11 @@
       
       
       
+      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
       <category domain="http://example.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</category>
       
       <category domain="http://example.com/tags/%E9%A1%BA%E5%BA%8F%E8%A1%A8/">顺序表</category>
-      
-      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
       
       
       <comments>http://example.com/2022/08/13/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/#disqus_thread</comments>
@@ -84,7 +105,7 @@
     </item>
     
     <item>
-      <title>工作报告</title>
+      <title>8.1-8.5 工作报告</title>
       <link>http://example.com/2022/08/13/8.1-8.5--%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/</link>
       <guid>http://example.com/2022/08/13/8.1-8.5--%E5%B7%A5%E4%BD%9C%E6%8A%A5%E5%91%8A/</guid>
       <pubDate>Sat, 13 Aug 2022 08:39:30 GMT</pubDate>
