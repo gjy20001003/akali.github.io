@@ -9,8 +9,29 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>上古时代的宝贝开卖了！</description>
-    <pubDate>Sat, 13 Aug 2022 15:37:03 GMT</pubDate>
+    <pubDate>Sat, 13 Aug 2022 15:50:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>洛阳</title>
+      <link>http://example.com/2022/08/13/%E9%95%BF%E5%AE%89/</link>
+      <guid>http://example.com/2022/08/13/%E9%95%BF%E5%AE%89/</guid>
+      <pubDate>Sat, 13 Aug 2022 15:38:43 GMT</pubDate>
+      
+      <description>&lt;p&gt;《你要写月，就不能只写月》仿写——历历山河&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>《你要写月，就不能只写月》仿写——历历山河</p><span id="more"></span><p>你要写洛阳，就不能只写洛阳</p><p>要写盛唐，写浮光<br>写这天下之众的攘攘与如霜</p><p>要写玉楼金阙拂衣裳，诗酒华章<br>写纸贵绝唱，写家书两行，<br>写一位陌上看花的冰心少年郎</p><p>写此夜玉笛声回荡，写满是京城牡丹香<br>再写白驹过隙梦黄粱，人世间茫茫</p><p>罢笔之时，欲晚天光<br>惊觉此身感秋凉，锦绣意气仍朗朗<br>当时只道是寻常</p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+      
+      
+      <comments>http://example.com/2022/08/13/%E9%95%BF%E5%AE%89/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>第一周7.25-7.29 工作周报</title>
