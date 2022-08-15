@@ -199,46 +199,50 @@
     </item>
     
     <item>
-      <title>吐槽</title>
-      <link>http://example.com/2022/08/14/%E5%90%90%E6%A7%BD/</link>
-      <guid>http://example.com/2022/08/14/%E5%90%90%E6%A7%BD/</guid>
-      <pubDate>Sun, 14 Aug 2022 08:10:47 GMT</pubDate>
+      <title>sqlmap使用</title>
+      <link>http://example.com/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/</link>
+      <guid>http://example.com/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/</guid>
+      <pubDate>Mon, 15 Aug 2022 04:51:45 GMT</pubDate>
       
-      <description>&lt;p&gt;日常吐槽&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>日常吐槽</p><span id="more"></span><p>在往博客上写东西的时候，接到家里的电话，接了之后蹦了一句你是不是在玩游戏，我直接不知道怎么接了，难搞</p><p><img src="/2022/08/14/%E5%90%90%E6%A7%BD/image-20220814161527134.png"></p>]]></content:encoded>
+      <description>&lt;p&gt;sqlmap的get使用方法和post使用方法以及其他技巧(更新ing~)&lt;/p&gt;</description>
       
       
       
-      <category domain="http://example.com/tags/%E9%9A%8F%E7%AC%94%EF%BC%8C%E5%90%90%E6%A7%BD/">随笔，吐槽</category>
+      <content:encoded><![CDATA[<p>sqlmap的get使用方法和post使用方法以及其他技巧(更新ing~)</p><span id="more"></span><h2 id="get使用方法"><a href="#get使用方法" class="headerlink" title="get使用方法"></a>get使用方法</h2><p>(1)查看是否有注入点：sqlmap -u 网址<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815143754072.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815143808583.png"><br>证明有注入点<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815143944207.png"><br>得到服务器操作系统为linux centOS，后端语言为php，数据库为mysql</p><p>(2)获取数据库<br>        ((1))获取全部数据库<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815144244725.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815144303120.png"><br>        ((2))获取当前数据库<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815144412391.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815144432759.png" alt="image-20220815144432759"></p><p>(3)获取当前数据库里所有表<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815144547931.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815144611455.png" alt="image-20220815144611455"></p><p>(4)获取表的字段<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815145336829.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815145356494.png"></p><p>(5)获取字段内容<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815145525659.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815145534950.png"><br>如果字段内容多的话可以再加上如 –start 1 –stop 100 ——获取1-100条数据<br>–dump 可以换成 –dump-all 导出全部内容</p><h2 id="post使用方法"><a href="#post使用方法" class="headerlink" title="post使用方法"></a>post使用方法</h2><p>通过burp抓包请求<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815150536388.png"><br>用txt形式保存<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815150558636.png"><br>检验注入点<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815150625346.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815150643242.png" alt="image-20220815150643242"><br>获取库名<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815150734338.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815150746967.png"><br>其余步骤与get一样</p><h2 id="指定位置的注入"><a href="#指定位置的注入" class="headerlink" title="指定位置的注入"></a>指定位置的注入</h2><p>在想注入的地方加*<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815151258357.png"><br>运行sqlmap后就会探测到*号<br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815151341838.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815151409577.png" alt="image-20220815151409577"></p><h2 id="盲注使用不接收http-body"><a href="#盲注使用不接收http-body" class="headerlink" title="盲注使用不接收http body"></a>盲注使用不接收http body</h2><p><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815151536755.png"><br><img src="/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/image-20220815151554688.png" alt="image-20220815151554688"></p>]]></content:encoded>
       
       
-      <comments>http://example.com/2022/08/14/%E5%90%90%E6%A7%BD/#disqus_thread</comments>
+      
+      <category domain="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/">网络攻防</category>
+      
+      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
+      
+      <category domain="http://example.com/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>http://example.com/2022/08/15/sqlmap%E4%BD%BF%E7%94%A8/#disqus_thread</comments>
       
     </item>
     
     <item>
-      <title>矩阵</title>
-      <link>http://example.com/2022/08/14/%E7%9F%A9%E9%98%B5/</link>
-      <guid>http://example.com/2022/08/14/%E7%9F%A9%E9%98%B5/</guid>
-      <pubDate>Sun, 14 Aug 2022 07:37:01 GMT</pubDate>
+      <title>web攻防</title>
+      <link>http://example.com/2022/08/15/web%E6%94%BB%E9%98%B2/</link>
+      <guid>http://example.com/2022/08/15/web%E6%94%BB%E9%98%B2/</guid>
+      <pubDate>Mon, 15 Aug 2022 02:12:39 GMT</pubDate>
       
-      <description>&lt;p&gt;矩阵的存储代码实现&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>矩阵的存储代码实现</p><span id="more"></span><h2 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h2><h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><p>ElemType a[10];    &#x2F;&#x2F;ElemType型一维数组</p><p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603194725210.png"></p><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>ElemType b[2] [4]    &#x2F;&#x2F;2行4列的二维数组</p><p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603194843476.png"></p><p>起始地址：LOC</p><p>行优先存储地址计算<img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603194958977.png"></p><p>列优先存储地址计算<img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603195101464.png"></p><p>二维数组也具有随机存储的性质</p><h3 id="普通矩阵的存储"><a href="#普通矩阵的存储" class="headerlink" title="普通矩阵的存储"></a>普通矩阵的存储</h3><h4 id="对称矩阵"><a href="#对称矩阵" class="headerlink" title="对称矩阵"></a>对称矩阵</h4><p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603195510230.png"></p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603195836998.png" style="zoom:67%;"><h3 id="三角矩阵"><a href="#三角矩阵" class="headerlink" title="三角矩阵"></a>三角矩阵</h3><p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603200202029.png"></p><h3 id="三对角矩阵（带状矩阵）"><a href="#三对角矩阵（带状矩阵）" class="headerlink" title="三对角矩阵（带状矩阵）"></a>三对角矩阵（带状矩阵）</h3><p>  <img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603200953049.png"></p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603201426822.png" style="zoom:80%;"><h3 id="稀疏矩阵"><a href="#稀疏矩阵" class="headerlink" title="稀疏矩阵"></a>稀疏矩阵</h3><p>非零元素的个数远远少于矩阵元素的个数</p><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603201607063.png" style="zoom:50%;"><p> <img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603201638617.png" style="zoom: 80%;"><img src="/2022/08/14/%E7%9F%A9%E9%98%B5/image-20220603201828331-16604628178811.png" style="zoom: 67%;"></p>]]></content:encoded>
+      <description>&lt;p&gt;每天几道题&lt;/p&gt;</description>
       
       
       
-      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-      
-      <category domain="http://example.com/tags/%E7%9F%A9%E9%98%B5/">矩阵</category>
+      <content:encoded><![CDATA[<p>每天几道题</p><span id="more"></span><h2 id="第一题——baby-web"><a href="#第一题——baby-web" class="headerlink" title="第一题——baby_web"></a>第一题——baby_web</h2><p>掌握web相应包头部常见参数</p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815101339517.png" alt="题目"></p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815101408887.png" alt="打开后的图片"></p><p>根据题目描述考虑index.php页面，但是打开网页后直接跳转到了1.php，抓包得到</p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815101555331.png"></p><p>扔到reperter模块，修改1.php为index.php</p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815101647686.png"></p><p>看到旗帜被隐藏，看hex得到</p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815101726805.png"></p><p>或者通过开发者工具，在网络中可以看到index被重定向了<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815120359827.png"></p><h2 id="第二题——ics-06"><a href="#第二题——ics-06" class="headerlink" title="第二题——ics-06"></a>第二题——ics-06</h2><p>id爆破</p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103134706.png" alt="题目"></p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103201798.png" alt="靶场"></p><p>点击很多个地方发现只有报表中心能点，里面内容为</p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103310739.png"></p><p>选了很多个日期发现没反应网页，后来发现改id是有反应的<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103352596.png"><br>明白了，爆破，先抓包再送去炸死这道阴间题<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103500026.png"></p><p>然后我就一百个数一百个数进行爆破，在2300-2400的时候报文长度不一样了<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103556967.png"><br>看结果获得旗帜<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815103629272.png"></p><h2 id="第三题——ingnt"><a href="#第三题——ingnt" class="headerlink" title="第三题——ingnt"></a>第三题——ingnt</h2><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115158896.png" alt="题目"></p><p><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115217584.png" alt="靶场"></p><p>没有什么可操作的地方除了地址框，猜测是sql注入<br>方法1：直接采用万能钥匙<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115337825.png"></p><p>方法二：sqlmap一把梭<br>先查数据库名<img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115419759.png" alt="image-20220815115419759"><br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115447014.png"><br>查表名<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115506861.png"><br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115521175.png"><br>输出表中所有字段<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115600014.png"><br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115612711.png"><br>输出pw字段内容<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115639962.png"><br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115652969.png"><br>得到flag</p><p>直接一把梭<br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115726708.png"><br><img src="/2022/08/15/web%E6%94%BB%E9%98%B2/image-20220815115746924.png"></p>]]></content:encoded>
       
       
-      <comments>http://example.com/2022/08/14/%E7%9F%A9%E9%98%B5/#disqus_thread</comments>
+      
+      <category domain="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/">网络攻防</category>
+      
+      <category domain="http://example.com/tags/%E5%AE%9E%E4%BE%8B/">实例</category>
+      
+      
+      <comments>http://example.com/2022/08/15/web%E6%94%BB%E9%98%B2/#disqus_thread</comments>
       
     </item>
     
